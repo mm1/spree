@@ -1,7 +1,6 @@
 require 'rake'
 require 'rubygems/package_task'
 require 'thor/group'
-require File.expand_path('../core/lib/generators/spree/install/install_generator', __FILE__)
 begin
   require 'spree/core/testing_support/common_rake'
 rescue LoadError
@@ -16,6 +15,7 @@ end
 
 desc "Generates a dummy app for testing for every Spree engine"
 task :test_app do
+  require File.expand_path('../core/lib/generators/spree/install/install_generator', __FILE__)
   %w(api core dash promo).each do |engine|
     ENV['LIB_NAME'] = File.join('spree', engine)
     ENV['DUMMY_PATH'] = File.expand_path("../#{engine}/spec/dummy", __FILE__)
