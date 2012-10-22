@@ -11,10 +11,11 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 require 'database_cleaner'
 
 require 'spree/models/testing_support/factories'
+require 'spree/models/testing_support/preferences'
+
 require 'spree/core/testing_support/env'
 require 'spree/core/testing_support/controller_requests'
 require 'spree/core/testing_support/authorization_helpers'
-require 'spree/core/testing_support/preferences'
 require 'spree/core/testing_support/flash'
 
 require 'spree/core/url_helpers'
@@ -49,9 +50,10 @@ RSpec.configure do |config|
   end
 
   config.include FactoryGirl::Syntax::Methods
+  config.include Spree::Models::TestingSupport::Preferences
+
   config.include Spree::Core::UrlHelpers
   config.include Spree::Core::TestingSupport::ControllerRequests
-  config.include Spree::Core::TestingSupport::Preferences
   config.include Spree::Core::TestingSupport::Flash
 
   config.include Paperclip::Shoulda::Matchers
