@@ -1,7 +1,7 @@
 require 'stringex'
 
 module Spree
-  module Core
+  module Models
     module Permalinks
       extend ActiveSupport::Concern
 
@@ -55,5 +55,5 @@ module Spree
   end
 end
 
-ActiveRecord::Base.send :include, Spree::Core::Permalinks
-ActiveRecord::Relation.send :include, Spree::Core::Permalinks
+ActiveRecord::Base.send :include, Spree::Models::Permalinks
+ActiveRecord::Relation.send :include, Spree::Models::Permalinks

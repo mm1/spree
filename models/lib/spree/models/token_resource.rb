@@ -1,5 +1,5 @@
 module Spree
-  module Core
+  module Models
     module TokenResource
       module ClassMethods
         def token_resource
@@ -23,5 +23,5 @@ module Spree
   end
 end
 
-ActiveRecord::Base.class_eval { include Spree::Core::TokenResource }
+ActiveRecord::Base.class_eval { include Spree::Models::TokenResource }
 
