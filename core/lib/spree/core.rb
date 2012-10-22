@@ -76,7 +76,6 @@ require 'spree/core/mail_settings'
 require 'spree/core/mail_interceptor'
 require 'spree/core/middleware/redirect_legacy_product_url'
 require 'spree/core/middleware/seo_assist'
-require 'spree/core/token_resource'
 require 'spree/core/s3_support'
 
 require 'spree/core/version'
