@@ -7,7 +7,6 @@ require 'acts_as_list'
 require 'active_merchant'
 require 'ransack'
 
-require 'spree/core'
 require 'spree/models/engine'
 
 require 'spree/models/ext/active_record'
