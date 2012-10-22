@@ -24,7 +24,9 @@ module Spree
     ]
 
     def generate_test_dummy
-      opts = (options || {}).slice(*PASSTHROUGH_OPTIONS)
+      # calling slice on a Thor::CoreExtensions::HashWithIndifferentAccess
+      # object has been known to return nil
+      opts = {}.merge(options).slice(*PASSTHROUGH_OPTIONS)
       opts[:database] = 'sqlite3' if opts[:database].blank?
       opts[:force] = true
       opts[:skip_bundle] = true
