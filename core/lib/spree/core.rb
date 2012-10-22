@@ -28,13 +28,6 @@
 #--
 require 'rails/all'
 require 'rails/generators'
-require 'state_machine'
-require 'paperclip'
-require 'kaminari'
-require 'awesome_nested_set'
-require 'acts_as_list'
-require 'active_merchant'
-require 'ransack'
 require 'jquery-rails'
 require 'deface'
 require 'cancan'
@@ -72,7 +65,6 @@ module Spree
   end
 end
 
-require 'spree/core/ext/active_record'
 
 require 'spree/core/delegate_belongs_to'
 
@@ -84,7 +76,6 @@ require 'spree/core/mail_settings'
 require 'spree/core/mail_interceptor'
 require 'spree/core/middleware/redirect_legacy_product_url'
 require 'spree/core/middleware/seo_assist'
-require 'spree/core/permalinks'
 require 'spree/core/token_resource'
 require 'spree/core/s3_support'
 
@@ -92,11 +83,6 @@ require 'spree/core/version'
 
 require 'spree/core/engine'
 require 'generators/spree/dummy/dummy_generator'
-
-ActiveRecord::Base.class_eval do
-  include Spree::Core::CalculatedAdjustments
-  include CollectiveIdea::Acts::NestedSet
-end
 
 if defined?(ActionView)
   require 'awesome_nested_set/helper'
