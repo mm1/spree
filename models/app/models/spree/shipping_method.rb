@@ -1,5 +1,6 @@
 module Spree
   class ShippingMethod < ActiveRecord::Base
+    include Spree::Models::CalculatedAdjustments
     DISPLAY = [:both, :front_end, :back_end]
 
     default_scope where(:deleted_at => nil)
@@ -12,8 +13,6 @@ module Spree
 
     attr_accessible :name, :zone_id, :display_on, :shipping_category_id,
                     :match_none, :match_one, :match_all
-
-    calculated_adjustments
 
     def available?(order, display_on = nil)
       displayable?(display_on) && calculator.available?(order)

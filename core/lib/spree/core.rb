@@ -65,12 +65,12 @@ module Spree
   end
 end
 
+require 'spree/models'
 
 require 'spree/core/delegate_belongs_to'
 
 require 'spree/core/ssl_requirement'
 require 'spree/core/store_helpers'
-require 'spree/core/calculated_adjustments'
 require 'spree/core/mail_settings'
 require 'spree/core/mail_interceptor'
 require 'spree/core/middleware/redirect_legacy_product_url'
