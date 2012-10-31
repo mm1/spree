@@ -28,7 +28,7 @@ group :test do
   gem 'selenium-webdriver', '2.25.0'
   gem 'database_cleaner', '0.7.1'
   gem 'launchy'
-  # gem 'debugger'
+  gem 'debugger'
 end
 
 gemspec
