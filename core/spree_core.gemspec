@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_models', version
+  s.add_dependency 'spree_api', version
 
   s.add_dependency 'jquery-rails', '~> 2.0'
   s.add_dependency 'select2-rails', '~> 3.2'
