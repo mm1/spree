@@ -10,6 +10,11 @@ module Spree
           @taxonomy = Taxonomy.find(params[:id])
         end
 
+        # Because JSTree wants parameters in a *slightly* different format
+        def jstree
+          show
+        end
+
         def create
           authorize! :create, Taxonomy
           @taxonomy = Taxonomy.new(params[:taxonomy])
