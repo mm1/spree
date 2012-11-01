@@ -1,5 +1,5 @@
 module Spree
-  module Frontend
+  module Core
     module ControllerHelpers
       module Auth
         def self.included(base)

@@ -1,5 +1,5 @@
 module Spree
-  module Frontend
+  module Core
     module ControllerHelpers
       module Order
         def self.included(base)
