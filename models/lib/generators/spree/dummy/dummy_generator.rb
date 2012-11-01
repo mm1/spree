@@ -1,6 +1,6 @@
 require "rails/generators/rails/app/app_generator"
 require 'active_support/core_ext/hash'
-require 'spree/core/version'
+require 'spree/models/version'
 
 module Spree
   class DummyGenerator < Rails::Generators::Base
@@ -64,6 +64,7 @@ module Spree
         remove_file "vendor"
         remove_file "spec"
       end
+
     end
 
     attr :lib_name
