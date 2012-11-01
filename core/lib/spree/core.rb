@@ -35,36 +35,6 @@ require 'select2-rails'
 require 'spree/money'
 require 'rabl'
 
-module Spree
-
-  mattr_accessor :user_class
-
-  def self.user_class
-    if @@user_class.is_a?(Class)
-      raise "Spree.user_class MUST be a String object, not a Class object."
-    elsif @@user_class.is_a?(String)
-      @@user_class.constantize
-    end
-  end
-
-  module Core
-  end
-
-  # Used to configure Spree.
-  #
-  # Example:
-  #
-  #   Spree.config do |config|
-  #     config.site_name = "An awesome Spree site"
-  #   end
-  #
-  # This method is defined within the core gem on purpose.
-  # Some people may only wish to use the Core part of Spree.
-  def self.config(&block)
-    yield(Spree::Config)
-  end
-end
-
 require 'spree/models'
 
 require 'spree/core/delegate_belongs_to'
