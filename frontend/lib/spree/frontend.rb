@@ -30,7 +30,6 @@ require 'rails/all'
 require 'rails/generators'
 require 'jquery-rails'
 require 'deface'
-require 'cancan'
 require 'select2-rails'
 require 'rabl'
 

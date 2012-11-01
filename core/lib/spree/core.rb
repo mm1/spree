@@ -1,4 +1,5 @@
 require 'rails/all'
+require 'cancan'
 require 'state_machine'
 require 'paperclip'
 require 'kaminari'
