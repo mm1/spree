@@ -39,7 +39,6 @@ require 'spree/core/mail_settings'
 require 'spree/core/mail_interceptor'
 
 require 'spree/frontend/responder'
-require 'spree/frontend/ssl_requirement'
 require 'spree/frontend/store_helpers'
 require 'spree/frontend/middleware/seo_assist'
 
