@@ -34,21 +34,16 @@ require 'cancan'
 require 'select2-rails'
 require 'rabl'
 
-require 'spree/models'
-
-require 'spree/core/responder'
-require 'spree/core/ssl_requirement'
-require 'spree/core/store_helpers'
+require 'spree/core'
 require 'spree/core/mail_settings'
 require 'spree/core/mail_interceptor'
-require 'spree/core/middleware/redirect_legacy_product_url'
-require 'spree/core/middleware/seo_assist'
-require 'spree/core/s3_support'
 
-require 'spree/core/version'
+require 'spree/frontend/responder'
+require 'spree/frontend/ssl_requirement'
+require 'spree/frontend/store_helpers'
+require 'spree/frontend/middleware/seo_assist'
 
-require 'spree/core/engine'
-require 'generators/spree/dummy/dummy_generator'
+require 'spree/frontend/engine'
 
 if defined?(ActionView)
   require 'awesome_nested_set/helper'
