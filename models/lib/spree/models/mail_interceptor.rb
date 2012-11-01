@@ -3,7 +3,7 @@
 #
 # See http://railscasts.com/episodes/206-action-mailer-in-rails-3 for more details.
 module Spree
-  module Core
+  module Models
     class MailInterceptor
 
       def self.delivering_email(message)
