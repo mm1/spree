@@ -2,9 +2,10 @@ module Spree
   def self.table_name_prefix
     "spree_"
   end
-  module Models
+
+  module Core
     class Engine < ::Rails::Engine
-      engine_name 'spree_models'
+      engine_name 'spree_core'
 
       config.autoload_paths += %W(#{config.root}/lib)
 
@@ -19,7 +20,7 @@ module Spree
       end
 
       initializer "spree.environment", :before => :load_config_initializers do |app|
-        app.config.spree = Spree::Models::Environment.new
+        app.config.spree = Spree::Core::Environment.new
         Spree::Config = app.config.spree.preferences #legacy access
       end
 
@@ -48,8 +49,8 @@ module Spree
 
       initializer "spree.mail.settings" do |app|
         if Spree::MailMethod.table_exists?
-          Spree::Models::MailSettings.init
-          Mail.register_interceptor(Spree::Models::MailInterceptor)
+          Spree::Core::MailSettings.init
+          Mail.register_interceptor(Spree::Core::MailInterceptor)
         end
       end
     end

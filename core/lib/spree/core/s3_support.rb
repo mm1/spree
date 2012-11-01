@@ -1,5 +1,5 @@
 module Spree
-  module Models
+  module Core
     # This module exists to reduce duplication in S3 settings between
     # the Image and Taxon models in Spree
     module S3Support

@@ -1,5 +1,5 @@
 module Spree
-  module Models
+  module Core
     module MailSettings
 
       # Override the Rails application mail settings based on preference.

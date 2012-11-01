@@ -1,5 +1,5 @@
 module Spree
-  module Models
+  module Core
     module CalculatedAdjustments
       def self.included(klass)
         klass.class_eval do

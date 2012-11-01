@@ -34,14 +34,14 @@ module Spree
   end
 end
 
-require 'spree/models/version'
-require 'spree/models/engine'
+require 'spree/core/version'
+require 'spree/core/engine'
 
-require 'spree/models/delegate_belongs_to'
-require 'spree/models/ext/active_record'
-require 'spree/models/permalinks'
-require 'spree/models/token_resource'
-require 'spree/models/calculated_adjustments'
+require 'spree/core/delegate_belongs_to'
+require 'spree/core/ext/active_record'
+require 'spree/core/permalinks'
+require 'spree/core/token_resource'
+require 'spree/core/calculated_adjustments'
 
 ActiveRecord::Base.class_eval do
   include CollectiveIdea::Acts::NestedSet

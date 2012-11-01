@@ -1,5 +1,5 @@
 module Spree
-  module Models
+  module Core
     class Environment
       class Calculators
         include EnvironmentExtension

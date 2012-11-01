@@ -1,5 +1,5 @@
 module Spree
-  module Models
+  module Core
     # THIS FILE SHOULD BE OVER-RIDDEN IN YOUR SITE EXTENSION!
     #   the exact code probably won't be useful, though you're welcome to modify and reuse
     #   the current contents are mainly for testing and documentation
@@ -57,7 +57,7 @@ module Spree
       # below scope would be something like ["$10 - $15", "$15 - $18", "$18 - $20"]
       #
       Spree::Product.add_search_scope :price_range_any do |*opts|
-        conds = opts.map {|o| Spree::Models::ProductFilters.price_filter[:conds][o]}.reject {|c| c.nil?}
+        conds = opts.map {|o| Spree::Core::ProductFilters.price_filter[:conds][o]}.reject {|c| c.nil?}
         scope = conds.shift
         conds.each do |new_scope|
           scope = scope.or(new_scope)
@@ -172,7 +172,7 @@ module Spree
       # This scope selects products in any of the active taxons or their children.
       #
       def ProductFilters.taxons_below(taxon)
-        return Spree::Models::ProductFilters.all_taxons if taxon.nil?
+        return Spree::Core::ProductFilters.all_taxons if taxon.nil?
         { :name   => "Taxons under " + taxon.name,
           :scope  => :taxons_id_in_tree_any,
           :labels => taxon.children.sort_by(&:position).map {|t| [t.name, t.id]},
