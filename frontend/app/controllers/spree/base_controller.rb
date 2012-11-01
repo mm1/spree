@@ -1,6 +1,6 @@
 require 'cancan'
 
 class Spree::BaseController < ApplicationController
-  include Spree::Core::ControllerHelpers::Auth
-  include Spree::Core::ControllerHelpers::Common
+  include Spree::Frontend::ControllerHelpers::Auth
+  include Spree::Frontend::ControllerHelpers::Common
 end
