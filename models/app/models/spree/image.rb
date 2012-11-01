@@ -15,7 +15,7 @@ module Spree
     # we need to look at the write-queue for images which have not been saved yet
     after_post_process :find_dimensions
 
-    include Spree::Core::S3Support
+    include Spree::Models::S3Support
     supports_s3 :attachment
 
     Spree::Image.attachment_definitions[:attachment][:styles] = ActiveSupport::JSON.decode(Spree::Config[:attachment_styles])

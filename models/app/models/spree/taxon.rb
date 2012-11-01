@@ -18,7 +18,7 @@ module Spree
       :path => ':rails_root/public/spree/taxons/:id/:style/:basename.:extension',
       :default_url => '/assets/default_taxon.png'
 
-    include Spree::Core::S3Support
+    include Spree::Models::S3Support
     supports_s3 :icon
 
     include ::Spree::ProductFilters  # for detailed defs of filters
