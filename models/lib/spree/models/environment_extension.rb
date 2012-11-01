@@ -1,5 +1,5 @@
 module Spree
-  module Core
+  module Models
     module EnvironmentExtension
       extend ActiveSupport::Concern
 

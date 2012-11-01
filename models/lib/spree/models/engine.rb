@@ -16,7 +16,7 @@ module Spree
       end
 
       initializer "spree.environment", :before => :load_config_initializers do |app|
-        app.config.spree = Spree::Core::Environment.new
+        app.config.spree = Spree::Models::Environment.new
         Spree::Config = app.config.spree.preferences #legacy access
       end
 
