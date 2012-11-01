@@ -1,5 +1,5 @@
 module Spree
-  module Core
+  module Models
     class GatewayError < RuntimeError; end
   end
 end
