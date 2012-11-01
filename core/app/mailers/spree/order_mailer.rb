@@ -4,6 +4,7 @@ module Spree
     def money(amount)
       Spree::Money.new(amount).to_s
     end
+    helper_method :money
 
     def confirm_email(order, resend = false)
       @order = order
