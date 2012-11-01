@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_models', version
+  s.add_dependency 'spree_core', version
   s.add_dependency 'spree_api', version
 
   s.add_dependency 'jquery-rails', '~> 2.0'
