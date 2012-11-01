@@ -37,6 +37,8 @@ end
 require 'spree/core/version'
 require 'spree/core/engine'
 
+require 'spree/money'
+
 require 'spree/core/delegate_belongs_to'
 require 'spree/core/ext/active_record'
 require 'spree/core/permalinks'
