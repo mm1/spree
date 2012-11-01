@@ -15,7 +15,7 @@ end
 
 desc "Generates a dummy app for testing for every Spree engine"
 task :test_app do
-  require File.expand_path('../models/lib/generators/spree/install/install_generator', __FILE__)
+  require File.expand_path('../core/lib/generators/spree/install/install_generator', __FILE__)
   %w(api core dash promo models).each do |engine|
     ENV['LIB_NAME'] = File.join('spree', engine)
     ENV['DUMMY_PATH'] = File.expand_path("../#{engine}/spec/dummy", __FILE__)
@@ -46,7 +46,7 @@ end
 namespace :gem do
   desc "run rake gem for all gems"
   task :build do
-    %w(core api dash promo sample cmd models testing_support).each do |gem_name|
+    %w(core api dash promo sample cmd models).each do |gem_name|
       puts "########################### #{gem_name} #########################"
       puts "Deleting #{gem_name}/pkg"
       FileUtils.rm_rf("#{gem_name}/pkg")
@@ -63,7 +63,7 @@ namespace :gem do
   task :install do
     version = File.read(File.expand_path("../SPREE_VERSION", __FILE__)).strip
 
-    %w(core api dash promo sample cmd models testing_support).each do |gem_name|
+    %w(core api dash promo sample cmd models).each do |gem_name|
       puts "########################### #{gem_name} #########################"
       puts "Deleting #{gem_name}/pkg"
       FileUtils.rm_rf("#{gem_name}/pkg")
@@ -82,7 +82,7 @@ namespace :gem do
   task :release do
     version = File.read(File.expand_path("../SPREE_VERSION", __FILE__)).strip
 
-    %w(core api dash promo sample cmd models testing_support).each do |gem_name|
+    %w(core api dash promo sample cmd models).each do |gem_name|
       puts "########################### #{gem_name} #########################"
       cmd = "cd #{gem_name}/pkg && gem push spree_#{gem_name}-#{version}.gem"; puts cmd; system cmd
     end
