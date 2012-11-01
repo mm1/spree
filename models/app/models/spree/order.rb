@@ -1,4 +1,4 @@
-require 'spree/core/validators/email'
+require 'spree/models/validators/email'
 require 'spree/order/checkout'
 
 module Spree
