@@ -2,6 +2,8 @@ unless defined?(Spree::InstallGenerator)
   require 'generators/spree/install/install_generator'
 end
 
+require 'generators/spree/dummy/dummy_generator'
+
 desc "Generates a dummy app for testing"
 namespace :common do
   task :test_app, :user_class do |t, args|
@@ -12,7 +14,7 @@ namespace :common do
     Spree::InstallGenerator.start ["--lib_name=#{ENV['LIB_NAME']}", "--auto-accept", "--migrate=false", "--seed=false", "--sample=false", "--quiet", "--user_class=#{args[:user_class]}"]
 
     puts "Setting up dummy database..."
-    cmd = "bundle exec rake db:drop db:create db:migrate db:test:prepare"
+    cmd = "bundle exec rake db:drop db:create db:migrate db:test:prepare --trace"
 
     if RUBY_PLATFORM =~ /mswin/ #windows
       cmd += " >nul"
