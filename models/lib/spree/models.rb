@@ -37,6 +37,7 @@ end
 require 'spree/models/version'
 require 'spree/models/engine'
 
+require 'spree/models/delegate_belongs_to'
 require 'spree/models/ext/active_record'
 require 'spree/models/permalinks'
 require 'spree/models/token_resource'

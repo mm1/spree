@@ -37,8 +37,6 @@ require 'rabl'
 
 require 'spree/models'
 
-require 'spree/core/delegate_belongs_to'
-
 require 'spree/core/responder'
 require 'spree/core/ssl_requirement'
 require 'spree/core/store_helpers'
