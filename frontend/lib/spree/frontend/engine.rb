@@ -1,13 +1,13 @@
 module Spree
-  module Core
+  module Frontend
     class Engine < ::Rails::Engine
       config.middleware.use "Spree::Frontend::Middleware::SeoAssist"
 
       config.autoload_paths += %W(#{config.root}/lib)
 
       # We need to reload the routes here due to how Spree sets them up.
-      # The different facets of Spree (auth, promo, etc.) append/prepend routes to Core
-      # *after* Core has been loaded.
+      # The different facets of Spree (auth, promo, etc.) append/prepend routes to Frontend
+      # *after* Frontend has been loaded.
       #
       # So we wait until after initialization is complete to do one final reload.
       # This then makes the appended/prepended routes available to the application.
