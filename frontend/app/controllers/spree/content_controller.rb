@@ -9,11 +9,15 @@ module Spree
     respond_to :html
 
     def show
-      render :action => params[:path]
+      respond_with do |format|
+        format.html { render :action => params[:path] }
+      end
     end
 
     def cvv
-      render :layout => false
+      respond_with do |format|
+        format.html { render :layout => false }
+      end
     end
   end
 end

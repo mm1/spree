@@ -10,6 +10,7 @@ module Spree
       @searcher = Config.searcher_class.new(params)
       @searcher.current_user = try_spree_current_user
       @products = @searcher.retrieve_products
+      respond_with(@products)
     end
 
     def show
@@ -25,6 +26,8 @@ module Spree
           @taxon = Taxon.find_by_permalink($1)
         end
       end
+
+      respond_with(@product)
     end
 
     private

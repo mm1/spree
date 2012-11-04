@@ -9,10 +9,13 @@ module Spree
 
       def index
         @payments = @order.payments
+
+        respond_with(@payments)
       end
 
       def new
         @payment = @order.payments.build
+        respond_with(@payment)
       end
 
       def create
@@ -23,7 +26,7 @@ module Spree
 
         begin
           unless @payment.save
-            redirect_to admin_order_payments_path(@order)
+            respond_with(@payment) { |format| format.html { redirect_to admin_order_payments_path(@order) } }
             return
           end
 
@@ -31,19 +34,19 @@ module Spree
             @payment.process!
             flash[:success] = flash_message_for(@payment, :successfully_created)
 
-             redirect_to admin_order_payments_path(@order)
+            respond_with(@payment) { |format| format.html { redirect_to admin_order_payments_path(@order) } }
           else
             #This is the first payment (admin created order)
             until @order.completed?
               @order.next!
             end
             flash[:success] = t(:new_order_completed)
-            redirect_to admin_order_url(@order)
+            respond_with(@payment) { |format| format.html { redirect_to admin_order_url(@order) } }
           end
 
         rescue Spree::Core::GatewayError => e
           flash[:error] = "#{e.message}"
-          redirect_to new_admin_order_payment_path(@order)
+          respond_with(@payment) { |format| format.html { redirect_to new_admin_order_payment_path(@order) } }
         end
       end
 
@@ -60,7 +63,7 @@ module Spree
       rescue Spree::Core::GatewayError => ge
         flash[:error] = "#{ge.message}"
       ensure
-        redirect_to admin_order_payments_path(@order)
+        respond_with(@payment) { |format| format.html { redirect_to admin_order_payments_path(@order) } }
       end
 
       private
