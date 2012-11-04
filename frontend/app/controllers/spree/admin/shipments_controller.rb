@@ -42,6 +42,7 @@ module Spree
           order.save
 
           flash[:success] = flash_message_for(shipment, :successfully_updated)
+          return_path = order.completed? ? edit_admin_order_shipment_path(order, shipment) : admin_order_adjustments_path(order)
           respond_with(@object) do |format|
             format.html { redirect_to return_path }
           end

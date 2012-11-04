@@ -31,9 +31,13 @@ module Spree
         render_order_form
       end
 
+      end
+
       private
         def render_order_form
-          render :partial => 'spree/admin/orders/form', :locals => { :order => @order.reload }
+          respond_with(@line_item) do |format|
+            format.html { render :partial => 'spree/admin/orders/form', :locals => { :order => @order.reload } }
+          end
         end
 
         def load_order
