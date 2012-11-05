@@ -147,6 +147,7 @@ describe Spree::Order do
       before do
         # TODO: This is ugly :(
         Spree::OrderMailer.stub(:cancel_email).and_return(mail_message = stub)
+        order.stub(:restock_items!)
         mail_message.stub :deliver
       end
 
