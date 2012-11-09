@@ -1,6 +1,6 @@
 module Spree
   class ShippingMethod < ActiveRecord::Base
-    include Spree::Models::CalculatedAdjustments
+    include Spree::Core::CalculatedAdjustments
     DISPLAY = [:both, :front_end, :back_end]
 
     default_scope where(:deleted_at => nil)

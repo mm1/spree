@@ -10,7 +10,7 @@ end
 
 module Spree
   class TaxRate < ActiveRecord::Base
-    include Spree::Models::CalculatedAdjustments
+    include Spree::Core::CalculatedAdjustments
     belongs_to :zone, :class_name => "Spree::Zone"
     belongs_to :tax_category, :class_name => "Spree::TaxCategory"
 
