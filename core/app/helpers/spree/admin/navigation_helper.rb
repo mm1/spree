@@ -29,7 +29,7 @@ module Spree
         selected = if options[:match_path]
           request.fullpath.starts_with?("#{root_path}admin#{options[:match_path]}")
         else
-          args.include?(controller.controller_name.to_sym)
+          args.include?(controller.controller_path.gsub('spree/admin/','').gsub('/','_').to_sym)
         end
         css_classes << 'selected' if selected
 
