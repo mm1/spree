@@ -1,7 +1,6 @@
 SUMMARY
 -------
 
-
 Spree is a complete open source e-commerce solution built with Ruby on Rails.  It was originally developed by Sean Schofield
 and is now maintained by a dedicated [core team](http://spreecommerce.com/core-team).  You can find out more
 by visiting the [Spree e-commerce project page](http://spreecommerce.com).
@@ -29,9 +28,9 @@ Installation
 The fastest way to get started is by using the spree command line tool
 available in the spree gem which will add Spree to an existing Rails application.
 
-    $ gem install rails -v 3.2.8
+    $ gem install rails -v 3.2.9
     $ gem install spree
-    $ rails _3.2.8_ new my_store
+    $ rails _3.2.9_ new my_store
     $ spree install my_store
 
 This will add the Spree gem to your Gemfile, create initializers, copy migrations and

@@ -63,7 +63,8 @@ module Spree
     before_create :link_by_email
     after_create :create_tax_charge!
 
-    validates :email, :presence => true, :email => true, :if => :require_email
+    validates :email, :presence => true, :if => :require_email
+    validates :email, :email => true, :if => :require_email, :allow_blank => true
     validate :has_available_shipment
     validate :has_available_payment
 
@@ -465,6 +466,10 @@ module Spree
 
     def products
       line_items.map { |li| li.variant.product }
+    end
+
+    def variants
+      line_items.map(&:variant)
     end
 
     def insufficient_stock_lines
