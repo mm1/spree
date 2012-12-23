@@ -88,11 +88,15 @@ Spree::Core::Engine.routes.draw do
       end
     end
 
+    delete '/option_values/:id', :to => "option_values#destroy", :as => :option_value
+
     resources :properties do
       collection do
         get :filtered
       end
     end
+
+    delete '/product_properties/:id', :to => "product_properties#destroy", :as => :product_property
 
     resources :prototypes do
       member do

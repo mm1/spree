@@ -24,7 +24,7 @@ module Spree
         order.payment_required?
       }
       go_to_state :confirm, :if => lambda { |order| order.confirmation_required? }
-      go_to_state :complete
+      go_to_state :complete, :if => lambda { |order| (order.payment_required? && order.payments.exists?) || !order.payment_required? }
       remove_transition :from => :delivery, :to => :confirm
     end
 
@@ -350,6 +350,10 @@ module Spree
       if (address = bill_address || ship_address)
         "#{address.firstname} #{address.lastname}"
       end
+    end
+
+    def can_ship?
+      self.complete? || self.resumed?
     end
 
     def credit_cards
